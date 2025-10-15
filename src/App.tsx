@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { Github } from 'lucide-react';
 import { RichTextBox, RichTextBoxHandle } from './components/RichTextBox';
 import { replaceInHTML } from './utils/textNodes';
+import { sampleText } from './utils/sample-text';
 
 function App() {
   const inputRef = useRef<RichTextBoxHandle>(null);
@@ -54,6 +55,11 @@ function App() {
     }
   };
 
+  const handleUseSample = () => {
+    if (!inputRef.current) return;
+    inputRef.current.setHTML(sampleText);
+  };
+
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <header className="border-b border-gray-200 bg-white">
@@ -89,6 +95,12 @@ function App() {
               label="Original"
               placeholder="Paste your text here..."
             />
+            <button
+              onClick={handleUseSample}
+              className="mt-4 px-6 py-2.5 bg-white border border-gray-300 text-gray-700 rounded-md font-medium hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 transition-colors"
+            >
+              Use Sample Text
+            </button>
           </div>
 
           <div className="flex flex-col gap-4">
