@@ -8,7 +8,7 @@ function App() {
   const outputRef = useRef<RichTextBoxHandle>(null);
   const [showCopyToast, setShowCopyToast] = useState(false);
 
-  const githubUrl = import.meta.env.VITE_GITHUB_URL || 'https://github.com/abishekvenkat/the-de-ai';
+  const githubUrl = import.meta.env.VITE_GITHUB_URL;
 
   const handleDeAI = () => {
     if (!inputRef.current || !outputRef.current) return;
